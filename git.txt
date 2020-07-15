@@ -1,1 +1,7 @@
-Hola GIT.
+git clone "URL" (Bajar todo el repositorio)
+git status 
+git add .
+git commit -m "mensaje" 
+git push origin master
+git pull origin master (actualizar el repositorio)
+git log
