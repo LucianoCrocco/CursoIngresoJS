@@ -7,7 +7,7 @@ D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es de
 E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos en informar del impuesto con el siguiente mensaje:
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
- */ /*
+ */ /* MAL HECHAS LAS CUENTAS
 function CalcularPrecio () 
 {
     var precioIndividual;
@@ -87,8 +87,8 @@ if(condition){
     alert (Y)
 }
 */
-// HECHO CON ELSE IF, NO SE IDENTAN  COMO ARRIBA.
-function CalcularPrecio () 
+// HECHO CON ELSE IF, NO SE IDENTAN  COMO ARRIBA. MAL HECHAS LAS CUENTAS
+/* function CalcularPrecio () 
 {
     var precioIndividual;
     var cantidadDeLamparitas;
@@ -145,4 +145,79 @@ function CalcularPrecio ()
             console.log (precioDescuento = precioFinal);
             txtIdprecioDescuento.value = parseInt(precioDescuento);
                 }
+}
+*/
+//HECHO CON SWITCH
+function CalcularPrecio () 
+{
+    var precioIndividual;
+    var cantidadDeLamparitas;
+    var empresaId;
+    var precioDescuento;
+    var precioFinal;
+    var precioFinalMasIva;
+
+    empresaId = Marca.value;
+    precioIndividual = 35;
+    cantidadDeLamparitas = txtIdCantidad.value;
+    cantidadDeLamparitas = parseInt(cantidadDeLamparitas);
+
+    if (cantidadDeLamparitas >= 6){
+        precioDescuento = (cantidadDeLamparitas * precioIndividual) * 0.50;
+    }
+    
+    switch (cantidadDeLamparitas) {
+        case 5:
+            switch (empresaId) {
+                case 'ArgentinaLuz':
+                    precioDescuento = (cantidadDeLamparitas * precioIndividual) * 0.40;
+                    precioFinal = (cantidadDeLamparitas * precioIndividual) - precioDescuento;
+                    break;
+                default:
+                    precioDescuento = (cantidadDeLamparitas * precioIndividual) * 0.30;
+                    precioFinal = (cantidadDeLamparitas * precioIndividual) - precioDescuento;
+                    break;
+            }
+            break;
+        case 4:
+            switch (empresaId) {
+                case 'ArgentinaLuz':
+                case 'FelipeLamparas':
+                    precioDescuento = (cantidadDeLamparitas * precioIndividual) * 0.25;
+                    precioFinal = (cantidadDeLamparitas * precioIndividual) - precioDescuento;
+                    break;
+                default:
+                    precioDescuento = (cantidadDeLamparitas * precioIndividual) * 0.20;
+                    precioFinal = (cantidadDeLamparitas * precioIndividual) - precioDescuento;
+                    break;
+            }
+            break;
+        case 3:
+            switch (empresaId) {
+                case 'ArgentinaLuz':
+                precioDescuento = (cantidadDeLamparitas * precioIndividual) * 0.15;
+                precioFinal = (cantidadDeLamparitas * precioIndividual) - precioDescuento;
+                    break;
+                case 'FelipeLamparas':
+                    precioDescuento = (cantidadDeLamparitas * precioIndividual) * 0.10;
+                    precioFinal = (cantidadDeLamparitas * precioIndividual) - precioDescuento;
+                    break;
+                default:
+                    precioDescuento = (cantidadDeLamparitas * precioIndividual) * 0.05;
+                    precioFinal = (cantidadDeLamparitas * precioIndividual) - precioDescuento;
+                    break;
+            }
+            break;
+        default:
+            precioDescuento = (cantidadDeLamparitas * precioIndividual);
+            break;
+    }
+
+    if(precioDescuento >= 120){
+        precioFinalMasIva = (precioDescuento * 1.10);
+        console.log("IIBB Usted pago " + precioFinalMasIva);
+        txtIdprecioDescuento.value = precioFinalMasIva;
+    } else {
+        txtIdprecioDescuento.value = precioFinal;
+    }
 }

@@ -1,6 +1,16 @@
 function mostrar()
 {
-	var destinoIngresado =txtIdDestino.value;
-	alert(destinoIngresado);
+	var destinoIngresado;
+	destinoIngresado = txtIdDestino.value;
+
+	switch(destinoIngresado){
+		case 'Bariloche':
+		case 'Ushuaia':
+			alert("Frio");
+			break;
+		default:
+			alert("Calor");
+			break;
+	}
 
 }//FIN DE LA FUNCIÓN
