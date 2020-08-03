@@ -1,9 +1,8 @@
 /*
 al presionar el botón mostrar 10 repeticiones 
 con números ASCENDENTE, desde el 1 al 10.*/
-function mostrar()
-{
-	// contador: varibale mas una constante
+
+// contador: varibale mas una constante
 	/* contador = contador + 1;
 	   contador +=1; abreviado de arriba
 	   contador ++; pos incremento, evalúa el valor (1º intento de loop) después de incrementar (2º loop)
@@ -16,12 +15,19 @@ function mostrar()
 
 	   bandera/flag.
 	*/
+
+
+function mostrar()
+{
 	var contador;
+
 	contador = 0;
 
-	while (contador < 11) {;
-		console.log('contador ', contador++);
+	while(contador < 10){
+		contador++;
+		console.log(contador);
 	}
+
 }//FIN DE LA FUNCIÓN
 
 /*	var contador;
@@ -39,7 +45,8 @@ function mostrar()
 	promedio = acumulador / contador;
 	console.log("El promedio es", promedio);
 }
-*//*
+*/
+/*
 var contador = 0;
 while (contador < 100) {
 	contador++;
@@ -49,4 +56,11 @@ while (contador < 100) {
 		continue; // continua a partir de donde lo dejamos arriba
 	}
 }
+
+	var contador;
+	contador = 0;
+
+	while (contador < 11) {;
+		console.log('contador ', contador++);
+	}
 */
