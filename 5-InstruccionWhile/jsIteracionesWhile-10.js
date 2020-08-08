@@ -10,7 +10,7 @@ hasta que el usuario quiera, mostrar:
 7-Promedio de positivos.
 8-Promedios de negativos.
 9-Diferencia entre positivos y negativos, (positvos-negativos). */
-// REHACER DE OTRA MANERA DISTINTA
+// REHACER DE OTRA MANERA DISTINTA (YA HECHO)
 function mostrar()
 {
 	var respuesta;

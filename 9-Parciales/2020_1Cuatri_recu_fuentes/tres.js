@@ -1,3 +1,6 @@
+//NO USAR TOLOCALUPPERCASE();
+//Salvo que use esto por ej: estadoCivil = estadoCivil !=null ? estadoCivil.toLocaleLowerCase():'';
+
 function mostrar()
 {
 	var nombre;
@@ -39,15 +42,22 @@ function mostrar()
 
 		do {
 			edad = parseInt(prompt("Ingrese su edad"));
-		} while(isNaN(edad));
+		} while(isNaN(edad) || edad < 0);
 
 		do {
 			sexoIngresado = prompt("Ingrese su sexo F O M");
-			sexoIngresado = sexoIngresado.toLocaleUpperCase();
+			/*if(sexoIngresado != null){
+				sexoIngresado = sexoIngresado.toLocaleUpperCase();
+			} else {
+				sexoIngresado = '';
+			}*/
+			/* sexoIngresado = sexoIngresado != null ? sexoIngresado.toLocaleUpperCase():''; */
+			//variable = condicion ? valorSiEsTrue:ValorSiEsFalse;
 		} while(sexoIngresado != 'F' && sexoIngresado != 'M');
 
-		estadoCivil = prompt ('Ingrese su estado civil: soltero, casado o viudo')
-		estadoCivil = estadoCivil.toLocaleLowerCase();
+		estadoCivil = prompt ('Ingrese su estado civil: soltero, casado o viudo');
+		/*estadoCivil = estadoCivil !=null ? estadoCivil.toLocaleLowerCase():'';
+		estadoCivil = estadoCivil.toLocaleLowerCase();*/
 		while (estadoCivil != 'casado' && estadoCivil != 'soltero' && estadoCivil != 'viudo'){
 			alert("Ingrese estado civil valido");
 			estadoCivil = prompt ('Ingrese su estado civil: soltero, casado o viudo')
@@ -61,12 +71,12 @@ function mostrar()
 		//A
 		if(contadorTemperatura < 1){
 			temperaturaMasAlta = temperaturaCorporal;
-			nacionalidadTemperaturaMasAlta = nacionalidad
+			nacionalidadTemperaturaMasAlta = nacionalidad;
 			contadorTemperatura++;
 		} else {
 			if (temperaturaCorporal > temperaturaMasAlta){
 				temperaturaMasAlta = temperaturaCorporal;
-				nacionalidadTemperaturaMasAlta = nacionalidad
+				nacionalidadTemperaturaMasAlta = nacionalidad;
 			}
 		}
 		//B
@@ -88,15 +98,17 @@ function mostrar()
 		if(estadoCivil == 'casado' && sexoIngresado == 'F'){
 			contadorMujeresCasadasEdad++;
 			acumuladorMujeresCasadasEdad =+ edad;
-			promedioMujeresCasadasEdad = acumuladorMujeresCasadasEdad / contadorMujeresCasadasEdad;
 		}
 
 		respuesta = confirm("Desea continuar ingresando datos?")
 	}while(respuesta == true);
-	
-	
-	
-	
+
+	if(contadorMujeresCasadasEdad == 0){
+		promedioMujeresCasadasEdad = 'No hay mujeres casadas'
+	} else {
+		promedioMujeresCasadasEdad = acumuladorMujeresCasadasEdad / contadorMujeresCasadasEdad;
+	}
+
 	console.log('La nacionalidad de la persona con mas temperatura ('+ temperaturaMasAlta + 'º) es ' + nacionalidad);
 	console.log(contadorSolterosYMayores + ' es la cantidad de solteros y mayores de edad');
 	console.log(contadorSolterasOViudas + ' es la cantidad de mujeres solteras o viudas');
